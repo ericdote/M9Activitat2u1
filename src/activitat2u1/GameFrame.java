@@ -10,6 +10,7 @@ package activitat2u1;
  * @author Usuario
  */
 import java.awt.Color;
+import java.util.Random;
  
 public class GameFrame extends javax.swing.JFrame {
 GameWorld ballWorld;
@@ -136,7 +137,9 @@ float x = (float) (Math.random()* this.getWidth());
 float y = (float) (Math.random()* this.getHeight());
 float angle = (float) (Math.random()* 360);
 float speed = (float) (Math.random()* 8);
-Ball b = new Ball(x, y, 20, speed, angle, Color.red);
+Random r = new Random();
+Color c = new Color(r.nextInt(255), r.nextInt(255), r.nextInt(255));
+Ball b = new Ball(x, y, 20, speed, angle, c);
 worldCanvas.add(b);
 jTextField1.setText(String.valueOf(worldCanvas.getBallCount()));
 }

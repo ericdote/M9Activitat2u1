@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package activitat2u1;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- *
- * @author Usuario
+ * 
+ * @author Eric
  */
 public class GameWorld implements Runnable {
 
@@ -26,7 +21,9 @@ public class GameWorld implements Runnable {
     void endSimulation() {
         simulador = false;
     }
-
+    /**
+     * Aquest metode inicialitza el Thread i inicia el thread.
+     */
     void startSimulation() {
         thread = new Thread(this);
         thread.start();
@@ -68,7 +65,9 @@ public class GameWorld implements Runnable {
     int getBallCount() {   
         return bolas.size();
     }
-
+    /**
+     * Metode run en el cual mentres simulador es true, primer es recorreix la llista Bolas i se li dona moviment. Tambe es reprinta per no perdre l'ubicacio.
+     */
     @Override
     public void run() {
         do {
@@ -76,6 +75,7 @@ public class GameWorld implements Runnable {
                 for (Ball i : bolas) {
                     i.move(canvas.getSize());
                 }
+                //Reprinta en pantalla la posicio de la bola
                 canvas.repaint();
 
                 Thread.sleep(1);
